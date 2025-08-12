@@ -1,0 +1,9 @@
+[user]
+	name = tanmaypanda-tw
+	email = tanmay.panda@thoughtworks.com
+
+[init]
+	defaultBranch = master
+
+[core]
+	editor = nvim
