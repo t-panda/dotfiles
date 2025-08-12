@@ -114,10 +114,10 @@ dotuninstall   # Run uninstallation
 
 ## Backups and Restoration
 
-The install script automatically creates backups in `~/.dotfiles-backup-YYYYMMDD-HHMMSS/`. 
+The install script automatically creates backups in `~/.backup/dotfiles-YYYYMMDD-HHMMSS/`. 
 To restore a backup:
 
-1. Find your backup directory: `ls -la ~/ | grep dotfiles-backup`
+1. Find your backup directory: `ls -la ~/.backup/ | grep dotfiles-`
 2. Copy the files back to their original locations or use the uninstall script's restoration option
 
 ## Troubleshooting

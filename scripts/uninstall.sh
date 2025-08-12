@@ -104,7 +104,7 @@ fi
 
 # Find and offer to restore backup
 print_status "Looking for configuration backups..."
-BACKUP_DIRS=($(find "$HOME" -maxdepth 1 -name ".dotfiles-backup-*" -type d 2>/dev/null | sort -r))
+BACKUP_DIRS=($(find "$HOME/.backup" -maxdepth 1 -name "dotfiles-*" -type d 2>/dev/null | sort -r))
 
 if [ ${#BACKUP_DIRS[@]} -gt 0 ]; then
     echo "Found backup directories:"

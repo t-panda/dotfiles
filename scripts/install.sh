@@ -102,7 +102,7 @@ fi
 
 # Backup existing configurations
 print_status "Backing up existing configurations..."
-BACKUP_DIR="$HOME/.dotfiles-backup-$(date +%Y%m%d-%H%M%S)"
+BACKUP_DIR="$HOME/.backup/dotfiles-$(date +%Y%m%d-%H%M%S)"
 mkdir -p "$BACKUP_DIR"
 
 # List of files to backup
