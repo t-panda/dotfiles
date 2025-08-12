@@ -18,8 +18,6 @@ source $ZSH/oh-my-zsh.sh
 
 alias cd="z"
 alias ll="ls -la"
-
-# Dotfiles management aliases
 alias dotsync='~/dotfiles/scripts/sync.sh'
 alias dotupdate='~/dotfiles/scripts/update.sh'
 alias dotinstall='~/dotfiles/scripts/install.sh'
