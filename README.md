@@ -26,176 +26,41 @@ A carefully curated collection of dotfiles for macOS development environment fea
 - **tmux**: Tmux terminal multiplexer configuration
 - **git**: Git configuration with user settings, aliases, and preferences
 
-## Quick Setup
+## Quick Start
+
+For quick setup instructions, see [INSTALL.md](INSTALL.md).
 
 ```bash
-git clone <your-repo-url> ~/dotfiles
+git clone https://github.com/t-panda/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ./scripts/install.sh
 ```
 
-## Script Usage Guide
+## Managing Your Dotfiles
 
-All management scripts are located in the `scripts/` directory. Here's when and how to use each one:
+For detailed installation instructions and script usage, see [INSTALL.md](INSTALL.md).
 
-### 🚀 Installation Script
-**File**: `scripts/install.sh`  
-**When to use**: Initial setup on a new machine or fresh installation
+### Management Scripts Overview
 
-```bash
-./scripts/install.sh
-```
+All management scripts are located in the `scripts/` directory:
 
-**What it does**:
-- Installs Homebrew (if not present)
-- Installs all required packages and applications
-- Installs Oh My Zsh, themes, and plugins
-- Creates timestamped backups of existing configurations
-- Creates symlinks using GNU Stow
-- Sets zsh as the default shell
+- **🚀 `install.sh`**: Full installation setup
+- **🔄 `update.sh`**: Update from remote and refresh symlinks
+- **⚡ `sync.sh`**: Quick refresh of local symlinks
+- **🗑️ `uninstall.sh`**: Complete removal and restoration
+- **📋 `aliases.sh`**: Convenient command shortcuts
 
-### 🔄 Update Script
-**File**: `scripts/update.sh`  
-**When to use**: Regular maintenance to get latest changes from remote repository
+## Common Usage Scenarios
 
-```bash
-# Full update (pulls from remote + updates local symlinks)
-./scripts/update.sh
+| Scenario | Command | Description |
+|----------|---------|-------------|
+| **Daily workflow** | `dotsync` | After changing any config file |
+| **Weekly maintenance** | `dotupdate` | Pull latest changes and update |
+| **Testing changes** | `dotsync` then test | Apply changes and test before committing |
+| **New machine setup** | `./scripts/install.sh` | Complete environment setup |
+| **Fix broken setup** | `./scripts/uninstall.sh` | Restore from backups |
 
-# Local-only update (just refresh symlinks, no remote pull)
-./scripts/update.sh --local
-```
-
-**What it does**:
-- **Full mode**: Updates dotfiles repo, Oh My Zsh, themes, and plugins from remote
-- **Local mode**: Only refreshes symlinks (useful after editing files locally)
-- Re-stows all packages to ensure symlinks are current
-- Reloads tmux configuration if tmux is running
-
-### ⚡ Quick Sync Script
-**File**: `scripts/sync.sh`  
-**When to use**: After making changes to any file in the dotfiles directory
-
-```bash
-./scripts/sync.sh
-```
-
-**What it does**:
-- Quickly updates all symlinks without remote operations
-- Perfect for immediate application of local changes
-- Automatically reloads tmux configuration
-- Fastest way to sync changes
-
-### 🗑️ Uninstall Script
-**File**: `scripts/uninstall.sh`  
-**When to use**: Complete removal of dotfiles setup
-
-```bash
-./scripts/uninstall.sh
-```
-
-**What it does**:
-- Interactive removal of all installed packages and applications
-- Option to remove Oh My Zsh and plugins
-- Option to restore shell back to bash
-- Finds and allows restoration from automatic backups
-- Removes all symlinks created by stow
-
-### 📋 Convenient Aliases
-**File**: `scripts/aliases.sh`  
-**When to use**: Add these to your shell configuration for easy access
-
-```bash
-# Add to your ~/.zshrc
-source ~/dotfiles/scripts/aliases.sh
-
-# Then use these commands from anywhere:
-dotsync        # Quick sync of local changes
-dotupdate      # Full update from remote
-dotinstall     # Run installation
-dotuninstall   # Run uninstallation
-```
-
-## Common Scenarios
-
-### Scenario 1: First-time setup
-```bash
-git clone <repo> ~/dotfiles
-cd ~/dotfiles
-./scripts/install.sh
-```
-
-### Scenario 2: Daily workflow - made changes to tmux config
-```bash
-# Edit ~/dotfiles/tmux/.tmux.conf
-dotsync  # or ./scripts/sync.sh
-# Changes are immediately active
-```
-
-### Scenario 3: Weekly maintenance
-```bash
-dotupdate  # or ./scripts/update.sh
-# Pulls latest changes and updates everything
-```
-
-### Scenario 4: Testing changes before committing
-```bash
-# Edit files in dotfiles directory
-dotsync                    # Apply changes locally
-# Test the changes
-git add . && git commit    # Commit if satisfied
-```
-
-### Scenario 5: Moving to a new machine
-```bash
-# On new machine:
-git clone <repo> ~/dotfiles
-cd ~/dotfiles
-./scripts/install.sh      # Full setup
-```
-
-### Scenario 6: Something went wrong, need to restore
-```bash
-./scripts/uninstall.sh    # Choose to restore from backup
-# Select backup date to restore from
-```
-
-## Manual Setup
-
-If you prefer to set up manually:
-
-### Prerequisites
-
-Install required packages:
-```bash
-brew install stow git zsh tmux neovim yazi wezterm zoxide fzf fnm
-```
-
-### Install Oh My Zsh and plugins
-
-```bash
-# Install Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Install Powerlevel10k theme
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
-
-# Install zsh plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-```
-
-### Deploy configurations with Stow
-
-```bash
-cd ~/dotfiles
-stow zsh
-stow nvim
-stow wezterm
-stow yazi
-stow tmux
-stow git
-```
+For detailed steps for each scenario, see [INSTALL.md](INSTALL.md).
 
 ## Package Structure
 
@@ -250,11 +115,6 @@ When you update a configuration file:
 ### Pro tip: 
 Since files are symlinked, any changes you make in the dotfiles directory are immediately reflected in your system. Use `dotsync` to ensure all symlinks are properly updated, especially after adding new files.
 
-## Restoring Backups
-
-The install script automatically creates backups in `~/.dotfiles-backup-YYYYMMDD-HHMMSS/`. 
-To restore a backup, simply copy the files back to their original locations.
-
 ## 🛠️ Tools Used
 
 - **[GNU Stow](https://www.gnu.org/software/stow/)**: Symlink farm manager for clean dotfiles management
@@ -280,6 +140,8 @@ Found a bug or have a suggestion? Feel free to:
 - Open an [issue](../../issues) 
 - Submit a [pull request](../../pulls)
 - Share your feedback
+
+Please read our [Contributing Guidelines](CONTRIBUTING.md) before submitting changes.
 
 ## ⭐ Support
 
