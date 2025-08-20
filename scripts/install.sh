@@ -42,17 +42,24 @@ fi
 print_status "Installing required packages..."
 
 brew update
-brew install stow git zsh tmux neovim yazi wezterm zoxide fzf fnm
-brew install tree-sitter ripgrep fd
-brew install ffmpeg imagemagick
-brew install gnupg
 
+# Only install explicitly requested packages
+print_status "Installing explicitly requested packages..."
+brew install colima docker docker-compose fd ffmpeg fnm fzf
+brew install git gnupg imagemagick jq ncdu neovim poppler
+brew install resvg ripgrep sevenzip stow tmux tree-sitter
+brew install yazi zoxide zsh
+
+# Applications
 print_status "Installing applications..."
 brew install --cask font-jetbrains-mono-nerd-font
 brew install --cask font-symbols-only-nerd-font
 brew install --cask visual-studio-code
 brew install --cask google-chrome
 brew install --cask stats
+brew install --cask wezterm
+brew install --cask spotify
+brew install --cask 1password
 brew install --cask zen
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then

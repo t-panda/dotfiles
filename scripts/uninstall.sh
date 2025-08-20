@@ -47,27 +47,33 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     
     print_status "Removing applications..."
     brew uninstall --cask zen 2>/dev/null || print_warning "zen not found"
+    brew uninstall --cask 1password 2>/dev/null || print_warning "1password not found"
+    brew uninstall --cask spotify 2>/dev/null || print_warning "spotify not found"
+    brew uninstall --cask wezterm 2>/dev/null || print_warning "wezterm not found"
     brew uninstall --cask stats 2>/dev/null || print_warning "stats not found"
     brew uninstall --cask google-chrome 2>/dev/null || print_warning "google-chrome not found"
     brew uninstall --cask visual-studio-code 2>/dev/null || print_warning "visual-studio-code not found"
     brew uninstall --cask font-symbols-only-nerd-font 2>/dev/null || print_warning "font-symbols-only-nerd-font not found"
     brew uninstall --cask font-jetbrains-mono-nerd-font 2>/dev/null || print_warning "font-jetbrains-mono-nerd-font not found"
     
-    print_status "Removing development tools..."
-    brew uninstall gnupg 2>/dev/null || print_warning "gnupg not found"
-    brew uninstall imagemagick 2>/dev/null || print_warning "imagemagick not found"
-    brew uninstall ffmpeg 2>/dev/null || print_warning "ffmpeg not found"
-    brew uninstall fd 2>/dev/null || print_warning "fd not found"
-    brew uninstall ripgrep 2>/dev/null || print_warning "ripgrep not found"
-    brew uninstall tree-sitter 2>/dev/null || print_warning "tree-sitter not found"
-    brew uninstall fnm 2>/dev/null || print_warning "fnm not found"
-    brew uninstall fzf 2>/dev/null || print_warning "fzf not found"
-    brew uninstall zoxide 2>/dev/null || print_warning "zoxide not found"
-    brew uninstall wezterm 2>/dev/null || print_warning "wezterm not found"
-    brew uninstall yazi 2>/dev/null || print_warning "yazi not found"
-    brew uninstall neovim 2>/dev/null || print_warning "neovim not found"
-    brew uninstall tmux 2>/dev/null || print_warning "tmux not found"
-    brew uninstall stow 2>/dev/null || print_warning "stow not found"
+    print_status "Removing explicitly requested packages..."
+    # Container tools
+    brew uninstall colima docker docker-compose 2>/dev/null || print_warning "container tools not found"
+    
+    # Development and utility tools
+    brew uninstall git gnupg jq ncdu 2>/dev/null || print_warning "utility tools not found"
+    brew uninstall sevenzip poppler resvg 2>/dev/null || print_warning "utility tools not found"
+    
+    # Media tools
+    brew uninstall ffmpeg imagemagick 2>/dev/null || print_warning "media tools not found"
+    
+    # Search and navigation tools
+    brew uninstall fd ripgrep tree-sitter 2>/dev/null || print_warning "search tools not found"
+    brew uninstall fnm fzf zoxide 2>/dev/null || print_warning "navigation tools not found"
+    
+    # Terminal tools
+    brew uninstall yazi neovim tmux 2>/dev/null || print_warning "terminal tools not found"
+    brew uninstall zsh stow 2>/dev/null || print_warning "core tools not found"
     
     print_success "Homebrew packages uninstalled"
 fi
