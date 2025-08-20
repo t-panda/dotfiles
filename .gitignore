@@ -38,3 +38,6 @@ __pycache__/
 
 # Neovim specific files that shouldn't be tracked
 **/nvim/.config/nvim/lazy-lock.json
+
+# Environment variables with sensitive information
+.env

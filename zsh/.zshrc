@@ -6,6 +6,9 @@ export EDITOR=nvim
 
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
+# Source environment variables from .env file
+[[ -f "$HOME/dotfiles/.env" ]] && source "$HOME/dotfiles/.env"
+
 export ZSH="$HOME/.oh-my-zsh"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
