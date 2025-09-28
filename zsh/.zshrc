@@ -3,8 +3,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 export EDITOR=nvim
-
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export JAVA_HOME="/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$JAVA_HOME/bin:$PATH
 
 # Source environment variables from .env file
 [[ -f "$HOME/dotfiles/.env" ]] && source "$HOME/dotfiles/.env"
@@ -25,6 +25,7 @@ alias dotsync='~/dotfiles/scripts/sync.sh'
 alias dotupdate='~/dotfiles/scripts/update.sh'
 alias dotinstall='~/dotfiles/scripts/install.sh'
 alias dotuninstall='~/dotfiles/scripts/uninstall.sh'
+alias dotcheck='~/dotfiles/scripts/check_packages.sh'
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 

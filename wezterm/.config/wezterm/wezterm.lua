@@ -15,6 +15,7 @@ config = {
     font_size = 16,
     initial_rows = 40,
     initial_cols = 125,
+    window_background_opacity = 0.8,
     
     default_prog = {"/bin/zsh", "-i"},
     window_padding = {
