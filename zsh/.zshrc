@@ -6,7 +6,6 @@ export EDITOR=nvim
 export JAVA_HOME="/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$JAVA_HOME/bin:$PATH
 
-# Source environment variables from .env file
 [[ -f "$HOME/dotfiles/.env" ]] && source "$HOME/dotfiles/.env"
 
 export ZSH="$HOME/.oh-my-zsh"
@@ -26,6 +25,8 @@ alias dotupdate='~/dotfiles/scripts/update.sh'
 alias dotinstall='~/dotfiles/scripts/install.sh'
 alias dotuninstall='~/dotfiles/scripts/uninstall.sh'
 alias dotcheck='~/dotfiles/scripts/check_packages.sh'
+alias docker="podman"
+alias docker-compose="podman-compose"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -37,3 +38,9 @@ FNM_PATH="/opt/homebrew/opt/fnm/bin"
 if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
 fi
+
+export PNPM_HOME="/Users/tanmay/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
