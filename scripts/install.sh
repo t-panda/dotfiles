@@ -45,7 +45,7 @@ brew update
 
 # Only install explicitly requested packages
 print_status "Installing explicitly requested packages..."
-brew install colima docker docker-compose fd ffmpeg fnm fzf
+brew install podman podman-compose fd ffmpeg fnm fzf
 brew install git gnupg imagemagick jq ncdu neovim poppler
 brew install resvg ripgrep sevenzip stow tmux tree-sitter
 brew install yazi zoxide zsh

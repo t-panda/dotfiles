@@ -112,8 +112,7 @@ check_casks() {
 
 # Define lists of formulas and casks to check
 formulas=(
-    # Explicitly requested packages (output of brew list --installed-on-request)
-    colima docker docker-compose fd ffmpeg fnm fzf
+    podman podman-compose fd ffmpeg fnm fzf
     git gnupg imagemagick jq ncdu neovim poppler
     resvg ripgrep sevenzip stow tmux tree-sitter
     yazi zoxide zsh

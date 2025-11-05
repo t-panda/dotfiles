@@ -58,7 +58,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     
     print_status "Removing explicitly requested packages..."
     # Container tools
-    brew uninstall colima docker docker-compose 2>/dev/null || print_warning "container tools not found"
+    brew uninstall podman podman-compose 2>/dev/null || print_warning "container tools not found"
     
     # Development and utility tools
     brew uninstall git gnupg jq ncdu 2>/dev/null || print_warning "utility tools not found"
