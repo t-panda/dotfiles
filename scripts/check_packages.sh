@@ -112,21 +112,23 @@ check_casks() {
 
 # Define lists of formulas and casks to check
 formulas=(
-    podman podman-compose fd ffmpeg fnm fzf
-    git gnupg imagemagick jq ncdu neovim poppler
-    resvg ripgrep sevenzip stow tmux tree-sitter
-    yazi zoxide zsh
+    awscli eza fd ffmpeg fnm fzf git gnupg go
+    imagemagick jq ncdu neovim openjdk@21 podman
+    podman-compose poppler resvg ripgrep sevenzip
+    stow tmux yazi zoxide zsh
 )
 
 casks=(
+    1password
     font-jetbrains-mono-nerd-font
     font-symbols-only-nerd-font
-    visual-studio-code
     google-chrome
-    stats
-    wezterm
+    google-drive
+    raycast
     spotify
-    1password
+    stats
+    visual-studio-code
+    ghostty
     zen
 )
 

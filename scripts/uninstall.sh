@@ -31,7 +31,7 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 print_status "Removing symlinks with stow..."
 cd "$DOTFILES_DIR"
 
-packages=("zsh" "nvim" "wezterm" "yazi" "tmux" "git")
+packages=("zsh" "nvim" "ghostty" "yazi" "tmux" "git")
 
 for package in "${packages[@]}"; do
     if [ -d "$package" ]; then
@@ -49,7 +49,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     brew uninstall --cask zen 2>/dev/null || print_warning "zen not found"
     brew uninstall --cask 1password 2>/dev/null || print_warning "1password not found"
     brew uninstall --cask spotify 2>/dev/null || print_warning "spotify not found"
-    brew uninstall --cask wezterm 2>/dev/null || print_warning "wezterm not found"
+    brew uninstall --cask ghostty 2>/dev/null || print_warning "ghostty not found"
     brew uninstall --cask stats 2>/dev/null || print_warning "stats not found"
     brew uninstall --cask google-chrome 2>/dev/null || print_warning "google-chrome not found"
     brew uninstall --cask visual-studio-code 2>/dev/null || print_warning "visual-studio-code not found"

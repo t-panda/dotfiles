@@ -66,7 +66,7 @@ else
 fi
 
 print_status "Re-stowing packages to update symlinks..."
-packages=("zsh" "nvim" "wezterm" "yazi" "tmux" "git")
+packages=("zsh" "nvim" "ghostty" "yazi" "tmux" "git")
 
 for package in "${packages[@]}"; do
     if [ -d "$package" ]; then

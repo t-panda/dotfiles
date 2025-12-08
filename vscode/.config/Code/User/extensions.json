@@ -1,0 +1,21 @@
+{
+  "recommendations": [
+    "arturock.gitstash",
+    "beardedbear.beardedicons",
+    "bradlc.vscode-tailwindcss",
+    "davidbwaters.macos-modern-theme",
+    "dreamcatcher45.podmanager",
+    "github.copilot",
+    "github.copilot-chat",
+    "github.github-vscode-theme",
+    "golang.go",
+    "redhat.java",
+    "repreng.csv",
+    "saoudrizwan.claude-dev",
+    "vscjava.vscode-gradle",
+    "vscjava.vscode-java-debug",
+    "vscjava.vscode-java-test",
+    "vscjava.vscode-maven",
+    "yoavbls.pretty-ts-errors"
+  ]
+}

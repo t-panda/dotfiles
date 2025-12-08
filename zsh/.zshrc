@@ -27,6 +27,7 @@ alias dotuninstall='~/dotfiles/scripts/uninstall.sh'
 alias dotcheck='~/dotfiles/scripts/check_packages.sh'
 alias docker="podman"
 alias docker-compose="podman-compose"
+alias aws-login="aws sso login --profile $POWER_USER_ACCESS"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -44,3 +45,7 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)

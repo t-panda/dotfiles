@@ -45,21 +45,23 @@ brew update
 
 # Only install explicitly requested packages
 print_status "Installing explicitly requested packages..."
-brew install podman podman-compose fd ffmpeg fnm fzf
-brew install git gnupg imagemagick jq ncdu neovim poppler
-brew install resvg ripgrep sevenzip stow tmux tree-sitter
-brew install yazi zoxide zsh
+brew install awscli carapace eza fd ffmpeg fnm fzf git gnupg
+brew install go imagemagick jq ncdu neovim openjdk@21
+brew install podman podman-compose poppler resvg
+brew install ripgrep sevenzip stow tmux yazi zoxide zsh
 
 # Applications
 print_status "Installing applications..."
+brew install --cask 1password
 brew install --cask font-jetbrains-mono-nerd-font
 brew install --cask font-symbols-only-nerd-font
-brew install --cask visual-studio-code
 brew install --cask google-chrome
-brew install --cask stats
-brew install --cask wezterm
+brew install --cask google-drive
+brew install --cask raycast
 brew install --cask spotify
-brew install --cask 1password
+brew install --cask stats
+brew install --cask visual-studio-code
+brew install --cask ghostty
 brew install --cask zen
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -95,7 +97,7 @@ BACKUP_DIR="$HOME/.backup/dotfiles-$(date +%Y%m%d-%H%M%S)"
 mkdir -p "$BACKUP_DIR"
 
 backup_files=(".zshrc" ".p10k.zsh" ".tmux.conf" ".gitconfig")
-backup_dirs=(".config/nvim" ".config/wezterm" ".config/yazi")
+backup_dirs=(".config/nvim" ".config/ghostty" ".config/yazi" ".config/Code")
 
 for file in "${backup_files[@]}"; do
     if [ -f "$HOME/$file" ]; then
@@ -132,7 +134,7 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 print_status "Creating symlinks with stow..."
 cd "$DOTFILES_DIR"
 
-packages=("zsh" "nvim" "wezterm" "yazi" "tmux" "git")
+packages=("zsh" "nvim" "ghostty" "yazi" "tmux" "git" "vscode")
 
 for package in "${packages[@]}"; do
     if [ -d "$package" ]; then
@@ -150,6 +152,40 @@ if [ "$SHELL" != "$(which zsh)" ]; then
     print_success "Default shell changed to zsh"
 else
     print_success "zsh is already the default shell"
+fi
+
+# Install VS Code extensions
+if command -v code &> /dev/null; then
+    print_status "Installing VS Code extensions..."
+    
+    extensions=(
+        "arturock.gitstash"
+        "beardedbear.beardedicons"
+        "bradlc.vscode-tailwindcss"
+        "davidbwaters.macos-modern-theme"
+        "dreamcatcher45.podmanager"
+        "github.copilot"
+        "github.copilot-chat"
+        "github.github-vscode-theme"
+        "golang.go"
+        "redhat.java"
+        "repreng.csv"
+        "saoudrizwan.claude-dev"
+        "vscjava.vscode-gradle"
+        "vscjava.vscode-java-debug"
+        "vscjava.vscode-java-test"
+        "vscjava.vscode-maven"
+        "yoavbls.pretty-ts-errors"
+    )
+    
+    for extension in "${extensions[@]}"; do
+        print_status "Installing VS Code extension: $extension"
+        code --install-extension "$extension" --force
+    done
+    
+    print_success "VS Code extensions installed"
+else
+    print_warning "VS Code command line tools not available. Install extensions manually or run 'code --install-extension <extension-id>'"
 fi
 
 print_success "Dotfiles setup completed!"

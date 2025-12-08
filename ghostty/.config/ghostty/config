@@ -1,0 +1,31 @@
+# Window appearance
+window-decoration = true
+window-padding-x = 8
+window-padding-y = 8,3
+window-padding-balance = true
+
+# Background opacity
+background-opacity = 1.0
+
+# Font configuration
+font-family = JetBrains Mono
+font-style = Bold
+font-size = 18
+
+theme = catppuccin-mocha.conf
+
+# Cursor style (SteadyBar = bar that doesn't blink)
+cursor-style = bar
+cursor-style-blink = true
+
+# Shell
+command = /bin/zsh
+shell-integration = detect
+
+# Window size (initial rows and columns)
+window-height = 59
+window-width = 204
+
+# Disable confirmation on close
+quit-after-last-window-closed = true
+confirm-close-surface = false
