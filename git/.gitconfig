@@ -1,9 +1,14 @@
 [user]
 	name = t-panda
-	email = tanmay.panda@thoughtworks.com
+	email = THO_COR242@HDFCLIFE.COM
 
 [init]
 	defaultBranch = master
 
 [core]
 	editor = nvim
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

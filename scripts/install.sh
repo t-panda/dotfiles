@@ -46,7 +46,7 @@ brew update
 # Only install explicitly requested packages
 print_status "Installing explicitly requested packages..."
 brew install awscli carapace eza fd ffmpeg fnm fzf git gnupg
-brew install go imagemagick jq ncdu neovim openjdk@21
+brew install go imagemagick jq ncdu neovim openjdk@25
 brew install podman podman-compose poppler resvg
 brew install ripgrep sevenzip stow tmux yazi zoxide zsh
 

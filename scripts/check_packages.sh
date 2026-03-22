@@ -113,7 +113,7 @@ check_casks() {
 # Define lists of formulas and casks to check
 formulas=(
     awscli eza fd ffmpeg fnm fzf git gnupg go
-    imagemagick jq ncdu neovim openjdk@21 podman
+    imagemagick jq ncdu neovim openjdk@25 podman
     podman-compose poppler resvg ripgrep sevenzip
     stow tmux yazi zoxide zsh
 )
